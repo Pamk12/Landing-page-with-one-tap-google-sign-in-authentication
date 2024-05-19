@@ -11,7 +11,7 @@ function handleCredentialsResponse(response){
 }
 function init(){
    google.accounts.id.initialize({
-    client_id:"962439370905-fdc580g10pvg3hptf44bc7ptk3solitq.apps.googleusercontent.com",
+    client_id:"", #add your client id.
     auto_select:true,
     redirect_uri:"http://localhost/dashboard.html",
     callback : handleCredentialsResponse

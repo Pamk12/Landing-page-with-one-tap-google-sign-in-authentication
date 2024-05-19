@@ -1,0 +1,229 @@
+@keyframes rotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+@keyframes spin {
+    0% {
+        filter: spin(180deg);
+    }
+    100% {
+        filter: spin(180deg);
+    }
+}
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px #ff0000; }
+    50% { box-shadow: 0 0 20px violet; }
+    100% { box-shadow: 0 0 5px yellow; }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.Blog,
+.Notes,
+.Home {
+    position: absolute;
+    top: 1%;
+    left: 35%;
+    width: 120px;
+    height: 30px;
+    overflow: hidden;
+    border: none;
+    background: transparent;
+    color: transparent;
+    font-size: 20px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: rotate 5s linear infinite;
+    text-align: center;
+}
+.Blog:before{
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color:chartreuse;
+    background:chocolate;
+    -webkit-mask-image: -webkit-linear-gradient(0deg,chartreuse 50%, chocolate 50%);
+    animation: rotate 5s linear infinite;
+}
+.Notes:before{
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color:aqua;
+    background:cornflowerblue;
+    -webkit-mask-image: -webkit-linear-gradient(0deg,aqua 70%, cornflowerblue 50%);
+    animation: spin 5s linear infinite;
+}
+
+.Home:before {
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #ff2400;
+    background: #9400d3;
+    -webkit-mask-image: -webkit-linear-gradient(0deg, #ff2400 50%, #9400d3 50%);
+    animation: rotate 5s linear infinite;
+}
+@media screen and (max-width: 600px) {
+    .Notes,
+    .Blog,
+    .Home{
+        top: 1%;
+        left: 48%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 30px;
+    }
+    .Blog:after
+    .Notes:after,
+    .Home:after {
+      font-size: 10px;
+      height: 25px;
+      width: 100px;
+      }
+  }
+  .Blog:after{
+    content: "Blog";
+    position: absolute;
+    background-color: #1c1b29;
+    height: 28px;
+    width: 118px;
+    left: 1%;
+    top: 2%;
+    color: #ffffff;
+    font-size: 23px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  .Notes:after{
+    content: "Notes/Pyq";
+    position: absolute;
+    background-color: #1c1b29;
+    height: 28px;
+    width: 118px;
+    left: 1%;
+    top: 2%;
+    color: #ffffff;
+    font-size: 23px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  .Home:after {
+    content: "Home";
+    position: absolute;
+    background-color: #1c1b29;
+    height: 28px;
+    width: 118px;
+    left: 1%;
+    top: 2%;
+    color: #ffffff;
+    font-size: 23px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  .dropdown {
+    position: absolute;
+    left: 48% ;
+    top: 4%;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 3px solid transparent;
+    border-image-slice: 0.5;
+    background-color:black;
+    color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 0 10px #ff0000;
+    animation: glowing 2s linear infinite;
+}
+.dropdown-btn{
+    background: transparent;
+    background-color: black;
+    border: none;
+    color: whitesmoke;
+    font-size: 12px;
+    
+}
+.dropdown:hover {
+    background-color:black;
+    box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background:rgba(0,0,0,0.8);
+    width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+    animation: slideDown 0.5s forwards;
+}
+
+.dropdown-content a {
+    color: whitesmoke;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background:rgba(0,0,0,0.8);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.Notes{
+    position: absolute;
+    top:1% ;
+    left: 59.9%;
+}
+.Blog{
+    position: absolute;
+    top:1% ;
+    left: 71%;
+}
+span{
+    position: absolute;
+    left: 85%;
+    top: 3%;
+    font-size: 25px;
+}
+.fa-circle{
+   max-height:70%;
+    position: absolute;
+    left: 92% ;
+    top: 2%;
+    
+}
+.fa-regular.fa-circle {
+    font-size: 80px; 
+}
+body{
+    background: rgba(0,0,0,0.8);
+}
+.Log{
+    position: absolute;
+    top: 20%;
+    left: 91%;
+} 
+  

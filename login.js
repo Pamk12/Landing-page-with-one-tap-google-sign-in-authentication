@@ -1,11 +1,27 @@
-function handlecredentialsresponse(response){
+function handleCredentialsResponse(response){
   console.log(response)
+  if(response.credential){
+    let jwt = response.credential
+    let user = JSON.parse(atob(jwt.split(".")[1]))
+    console.log(user)
+    document.getElementById('Profile').innerHTML=`
+    Hi, ${user.given_name}
+    <img src="${user.picture}"/>`
+   }
 }
-function Init(){
+function init(){
    google.accounts.id.initialize({
-    client_id:"962439370905-7ui58r928k3o7up9s74ocdlp7f8vvf9k.apps.googleusercontent.com",
+    client_id:"962439370905-fdc580g10pvg3hptf44bc7ptk3solitq.apps.googleusercontent.com",
     auto_select:true,
-    callback:handlecredentialsresponse
-   })
-   google.accounts.id.prompt()
-}   
+    redirect_uri:"http://localhost/dashboard.html",
+    callback : handleCredentialsResponse
+   });
+   google.accounts.id.prompt();
+   document.getElementById('Log').style.display='block'
+}  
+function handleLogout(){
+  google.accounts.id.disableAutoSelect();
+  google.accounts.id.prompt();
+  document.getElementById('Profile').innerHTML=`Profile`
+  document.getElementById('Log').style.display='none'
+} 
